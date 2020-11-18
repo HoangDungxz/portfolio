@@ -1,0 +1,24 @@
+<?php 
+$posts = $block->getPortfolioCollection();
+$enable =  $block->getConfig('portfolio/portfoliopage/is_enabled');
+?>
+<?php if ($enable == 1): ?>
+	<h3><?= $block->getData('title') ?></h3>
+	<div class="portfolio">
+		<?php foreach ($posts as $post): ?>
+			<a class="item" href="<?= $block->getBaseUrl(); ?>/portfolio/index/detail/id/<?= $post->getId(); ?>">
+				<div class="item-image">
+					<img src="<?= $block->getBaseUrl(); ?>/pub/media/portfolio/index/<?= $post->getImages(); ?>" alt="">
+				</div>
+				<div class="item-content">
+					<div class="item-content_title">
+						<?= $post->getTitle() ?>
+					</div>
+					<div class="item-content_description">
+						<?= $post->getDescription() ?>
+					</div>
+				</div>
+			</a>
+		<?php endforeach ?>
+	</div>
+<?php endif ?>

@@ -1,0 +1,72 @@
+<?php 
+$posts = $block->getPortfolioCollection();
+$enable =  $block->getConfig('portfolio/portfoliopage/is_enabled');
+?>
+<?php if ($enable == 1): ?>
+	
+	<h3><?= $block->getData('title') ?></h3>
+	<div class="portfolio-carousel">
+		<?php foreach ($posts as $post): ?>
+			<a class="item" href="<?= $block->getBaseUrl(); ?>/portfolio/index/detail/id/<?= $post->getId(); ?>">
+				<div class="item-image">
+					<img src="<?= $block->getBaseUrl(); ?>/pub/media/portfolio/index/<?= $post->getImages(); ?>" alt="">
+				</div>
+				<div class="item-content">
+					<div class="item-content_title">
+						<?= $post->getTitle() ?>
+					</div>
+					<div class="item-content_description">
+						<?= $post->getDescription() ?>
+					</div>
+				</div>
+			</a>
+		<?php endforeach ?>
+	</div>
+
+	<script type="text/javascript">
+		require(['jquery', 'slick'], function($){
+			$(function(){
+				$('.portfolio-carousel').slick({
+					dots: false,
+					infinite: true,
+					speed: 300,
+					slidesToShow: 5,
+					slidesToScroll: 1,
+					arrows: true,
+					responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 5,
+							slidesToScroll: 1,
+							infinite: true,
+							arrows: true
+						}
+					},
+					{
+						breakpoint: 770,
+						settings: {
+							slidesToShow: 3,
+							slidesToScroll: 2
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+					},
+					{
+						breakpoint: 400,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
+					}
+					]
+				});
+			});
+		});
+	</script>
+	<?php endif ?>

@@ -1,0 +1,21 @@
+@import 'slick/_slick.less';
+@import 'slick/_slick-theme.less';
+& when (@media-common = true) {
+	.portfolio{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-column-gap: 30px;
+		grid-row-gap: 30px;
+		.item{
+			
+			&-content_title{
+				font-weight: bold;
+			}
+		}
+	}
+	.portfolio-detail-media{
+		.fotorama__img{
+			width: 100%;
+		}
+	}
+}

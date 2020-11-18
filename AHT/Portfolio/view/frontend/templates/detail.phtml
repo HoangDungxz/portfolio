@@ -1,0 +1,46 @@
+<div class="product-info-main">
+	<div class="page-title-wrapper product">
+		<h1 class="page-title">
+			<span class="base" data-ui-id="page-title-wrapper" itemprop="name">
+				<?php $portfolio = $block->getPort(); echo $portfolio->getTitle(); ?>
+			</span>    
+		</h1>
+	</div>
+	<div class="product-info-price">
+		<div class="price-box price-final_price" data-role="priceBox" data-product-id="1802" data-price-box="product-id-1802">
+			<span class="normal-price">
+				<span class="price-container price-final_price tax weee" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+					<span class="price-label">
+						
+					</span>
+					<div id="product-price-1802" data-price-amount="34" data-price-type="finalPrice" class="price-wrapper ">
+						<?php if (isset($portfolio['created_at'])) echo $portfolio->getCreatedAt(); ?>
+					</div>
+					<meta itemprop="price" content="34">
+					<meta itemprop="priceCurrency" content="USD">
+				</span>
+			</span>
+		</div>
+	</div>
+</div>
+
+<div class="product media portfolio-detail-media">
+<?php 
+if (isset($portfolio['images'])) 
+	echo "<img class='fotorama__img' src='".$block->getBaseUrl()."/pub/media/portfolio/index/".$portfolio->getImages()."' alt=''>";
+?>
+</div>
+
+<div class="product info detailed">
+	<div class="product data items" role="tablist">
+		<div class="data item title active" data-role="collapsible" id="tab-label-description" role="tab" data-collapsible="true" aria-controls="description" aria-selected="false" aria-expanded="true" tabindex="0">
+			<a class="data switch" tabindex="-1" data-toggle="trigger" href="#description" id="tab-label-description-title">
+			Description  </a>
+		</div>
+		<div class="data item content" aria-labelledby="tab-label-description" id="description" data-role="content" role="tabpanel" aria-hidden="false">
+			<div class="product attribute description">
+				<div class="value"><?php if (isset($portfolio['description'])) echo $portfolio->getDescription(); ?></div>
+			</div>
+		</div>
+	</div>
+</div>

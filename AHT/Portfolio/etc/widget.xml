@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+   <widget id="aht_portfolio_widget" class="AHT\Portfolio\Block\Widget\Portfolio">
+      <label translate="true">Portfolio Widget</label>
+      <description>Widget in Magento2</description>
+      <parameters>
+         <parameter name="template" xsi:type="select" required="true" visible="true">
+            <label translate="true">Template</label>
+            <options>
+               <option name="list"
+                  value="AHT_Portfolio::widget/carosel.phtml" selected="true">
+                  <label translate="true">Portfolio list</label>
+               </option>
+               <option name="carosel"
+                  value="AHT_Portfolio::widget/list.phtml">
+                  <label translate="true">Portfolio carosel slider</label>
+               </option>
+            </options>
+         </parameter>
+         <parameter name="title" xsi:type="text"  visible="true" sort_order="0" >
+            <label translate="true">Title</label>
+         </parameter>            
+         <parameter name="number_of_display" xsi:type="text"  visible="true" sort_order="1" >
+            <label translate="true">Number to Display</label>
+         </parameter>         
+      </parameters>
+   </widget>
+</widgets>
